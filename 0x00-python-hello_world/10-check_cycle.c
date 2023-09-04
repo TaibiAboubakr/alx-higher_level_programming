@@ -8,7 +8,7 @@
 
 int check_cycle(listint_t *list)
 {
-	const listint_t *adress[20] = {NULL};
+	const listint_t *adress[10] = {NULL};
 	int i = 0;
 
 	if (list == NULL)
