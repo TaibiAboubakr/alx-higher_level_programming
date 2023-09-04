@@ -13,14 +13,14 @@ int check_cycle(listint_t *list)
 
 	if (list == NULL)
 		return (0);
-	
+
 	adress[0] = list;
 	list = list->next;
-	i++;
-	for (; list; list = list->next)
+
+	for (i = 1; list; )
 	{
 		adress[i] = list;
-
+		list = list->next;
 		for (i = 0; adress[i]; i++)
 			if (adress[i] == list)
 				return (1);
