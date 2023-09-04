@@ -17,10 +17,10 @@ int check_cycle(listint_t *list)
 	adress[0] = list;
 	list = list->next;
 	i++;
-	while (list)
+	for (; list; list = list->next)
 	{
 		adress[i] = list;
-		list = list->next;
+
 		for (i = 0; adress[i]; i++)
 			if (adress[i] == list)
 				return (1);
