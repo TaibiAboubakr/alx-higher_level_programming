@@ -17,7 +17,7 @@ int check_cycle(listint_t *list)
 	adress[0] = list;
 	list = list->next;
 
-	for (i = 1; list; list = list->next)
+	for (i = 1; list; list = list->next, i++)
 	{
 		adress[i] = list;
 		for (i = 0; adress[i]; i++)
