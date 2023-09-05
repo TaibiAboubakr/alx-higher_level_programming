@@ -6,4 +6,4 @@ for n in range(10):
             break
         if x == n or n > x:
             continue
-        print(f"{n}{x}", end=", ")
+        print("{}{}".format(n, x), end=", ")
