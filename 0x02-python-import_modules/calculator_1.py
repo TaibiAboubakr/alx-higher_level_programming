@@ -24,7 +24,7 @@ def sub(a, b):
     """
     return (a - b)
 
-#!/usr/bin/python3
+
 def mul(a, b):
     """My multiplication function
 
@@ -49,3 +49,4 @@ def div(a, b):
         The return value. a / b
     """
     return int(a / b)
+    
