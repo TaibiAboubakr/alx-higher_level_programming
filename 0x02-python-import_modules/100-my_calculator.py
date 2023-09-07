@@ -2,7 +2,7 @@
 import sys
 from calculator import *
 if len(sys.argv) != 4:
-    print(" Usage: {} <a> <operator> <b>".format(sys.argv[0]))
+    print("Usage: {} <a> <operator> <b>".format(sys.argv[0]))
     exit(1)
 n1 = (sys.argv[1])
 n2 = (sys.argv[3])
