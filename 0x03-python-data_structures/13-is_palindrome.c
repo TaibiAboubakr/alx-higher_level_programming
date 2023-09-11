@@ -10,16 +10,13 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *tmp = (*head);
-	int *array, nbr_nodes = 0, i, j;
+	int array[200], nbr_nodes = 0, i, j;
 
 	if (head == NULL || (*head) == NULL || tmp->next == NULL)
 		return (1);
 	for (nbr_nodes = 0; tmp; tmp = tmp->next)
 		nbr_nodes++;
 
-	array = (int *)malloc(sizeof(int) * nbr_nodes);
-	if (array == NULL)
-		exit(1);
 	tmp = (*head);
 	for (i = 0; tmp; i++, tmp = tmp->next)
 		array[i] = tmp->n;
