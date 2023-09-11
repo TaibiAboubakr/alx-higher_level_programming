@@ -1,19 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include "lists.h"
 
 /**
- * main - check runtime of is_palindrome - not palindrome
+ * main - create long even numbered list not palindrome and check
  *
  * Return: Always 0.
  */
 int main(void)
 {
 	listint_t *head;
-	clock_t start;
-	clock_t end;
-	clock_t diff;
+	listint_t *current;
 	int i;
 
 	head = NULL;
@@ -22,19 +19,15 @@ int main(void)
 	for (i = 1000; i >= 0; i--)
 		add_nodeint_end(&head, i);
 
-	start = clock();
+	current = head;
+	for (i = 0; i < 727; i++)
+		current = current->next;
+	current->n = -98;
 
-	for (i = 0; i < 10; i++)
-		is_palindrome(&head);
-
-	end = clock();
-
-	diff = (double)(end - start) / 10;
-
-	if (diff > 80)
-		printf("Runtime too long\n");
+	if (is_palindrome(&head) == 1)
+		printf("Linked list is a palindrome\n");
 	else
-		printf("OK\n");
+		printf("Linked list is not a palindrome\n");
 
 	free_listint(head);
 
