@@ -7,5 +7,5 @@ def new_in_list(my_list, idx, element):
     if lenght > 0:
         for i in my_list:
             my_list_copy.append(i)
-    my_list[idx] = element
+    my_list_copy[idx] = element
     return (my_list_copy)
