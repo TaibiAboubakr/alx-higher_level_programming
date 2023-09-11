@@ -12,12 +12,10 @@ int is_palindrome(listint_t **head)
 	listint_t *tmp = (*head);
 	int *array, nbr_nodes = 0, i, j;
 
-	if (head == NULL || (*head) == NULL)
+	if (head == NULL || (*head) == NULL || tmp->next == NULL)
 		return (1);
 	for (nbr_nodes = 0; tmp; tmp = tmp->next)
 		nbr_nodes++;
-	if (nbr_nodes == 0 || nbr_nodes == 1)
-		return (1);
 
 	array = (int *)malloc(sizeof(int) * nbr_nodes);
 	if (array == NULL)
