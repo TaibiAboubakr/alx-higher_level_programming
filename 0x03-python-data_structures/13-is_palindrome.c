@@ -26,6 +26,8 @@ int is_palindrome(listint_t **head)
 
 	for (i = 0, j = nbr_nodes - 1; i <= j; i++, j--)
 		if (array[i] != array[j])
-			return (0);
+		{ free(array);
+			return (0); }
+	free(array);
 	return (1);
 }
