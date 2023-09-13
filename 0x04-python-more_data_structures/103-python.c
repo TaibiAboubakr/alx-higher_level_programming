@@ -5,6 +5,9 @@
  */
 void print_python_list(PyObject *p)
 {
+	PyObject *element;
+	Py_ssize_t i;
+
 	if (!PyList_Check(p))
 	{
 		PyErr_Print();
@@ -12,8 +15,7 @@ void print_python_list(PyObject *p)
 	}
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %ld\n", PyList_Size(p));
-	PyObject *element;
-	Py_ssize_t i;
+
 
 	for (i = 0; i < PyList_Size(p); i++)
 	{
