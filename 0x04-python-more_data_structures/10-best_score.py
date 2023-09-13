@@ -5,9 +5,8 @@ def best_score(a_dictionary):
     if a_dictionary is None:
         return None
     else:
-        for key in a_dictionary:
-            score = a_dictionary.get(key)
+        for student, score in a_dictionary.items():
             if bestScore is None or score > bestScore:
                 bestScore = score
-                key_bestScore = key
-        return (key_bestScore)
+                bestStudent = student
+        return (bestStudent)
