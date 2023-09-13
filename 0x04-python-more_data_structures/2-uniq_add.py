@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def uniq_add(my_list=[]):
-    sum = 0
-    my_set = set(my_list)
-    for x in my_set:
-        sum += x
-    return sum
+    my_set  = set(my_list)
+    sum_fn = lambda x: x
+    return sum(map(sum_fn, my_set))
+
+
