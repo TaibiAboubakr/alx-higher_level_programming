@@ -81,11 +81,12 @@ class Square:
         self.__position = value
 
     def my_print(self):
-        if self.size == 0:
+        """Print the square with the #"""
+        if self.__size == 0:
+            print("")
+            return
+        for _ in range(self.__position[1]):
             print()
-        else:
-            for _ in range(self.__position[1]):
-                print()
-            for _ in range(self.size):
-                print(" " * self.__position[0], end="")
-                print("#" * self.size)
+        for _ in range(self.__size):
+            print(" " * self.__position[0], end="")
+            print("#" * self.__size)
