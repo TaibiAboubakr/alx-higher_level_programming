@@ -94,7 +94,7 @@ class Square:
         """Print the square with the #"""
         result = ""
         if self.__size == 0:
-            return ('\n')
+            return (result)
 
         for _ in range(self.__position[1]):
             result += '\n'
