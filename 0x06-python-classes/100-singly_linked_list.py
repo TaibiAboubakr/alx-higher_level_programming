@@ -31,20 +31,21 @@ class Node:
 class SinglyLinkedList:
     def __init__(self):
         self.head = None
+
     def sorted_insert(self, value):
         new_node = Node(value)
         if self.head is None or value < self.head.data:
             new_node.next_node = self.head
             self.head = new_node
         else:
-            current = self.head
-            while current.next_node is not None and current.next_node.data < value:
-                current = current.next_node
-            new_node.next_node = current.next_node
-            current.next_node = new_node
+            curr = self.head
+            while curr.next_node is not None and curr.next_node.data < value:
+                curr = curr.next_node
+            new_node.next_node = curr.next_node
+            curr.next_node = new_node
+
     def display(self):
         current = self.head
         while current:
             print(current.data)
             current = current.next_node
-
