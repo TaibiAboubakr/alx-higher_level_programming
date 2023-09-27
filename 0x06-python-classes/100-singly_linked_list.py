@@ -4,11 +4,11 @@
 
 class Node:
     def __init__(self, data, next_node=None):
-        
+
         """Initialize a new Node.
             Args:
                 data (int): The data of the node of a singly linked list.
-                next_node (Node): The next_node of the node of a singly linked list.
+                next_node (Node): The next_node of the node of a sll.
         """
         if not isinstance(data, int):
             raise TypeError("data must be an integer")
