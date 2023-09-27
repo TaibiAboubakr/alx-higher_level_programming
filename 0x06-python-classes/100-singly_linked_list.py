@@ -62,11 +62,16 @@ class Node:
         self.__next_node = value
 
 
+""" class that defines a singly linked list  """
+
+
 class SinglyLinkedList:
     def __init__(self):
         self.head = None
 
     def sorted_insert(self, value):
+        """ insert new Node in the Singly Linked List """
+
         new_node = Node(value)
         if self.head is None or value < self.head.data:
             new_node.next_node = self.head
@@ -79,6 +84,7 @@ class SinglyLinkedList:
             curr.next_node = new_node
 
     def __str__(self):
+        """ Print the Singly Linked List """
         current = self.head
         result = ""
         while current:
