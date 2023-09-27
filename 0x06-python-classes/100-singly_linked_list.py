@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" class Node that defines a node of a singly linked list """
+
+
 class Node:
     def __init__(self, data, next_node=None):
         if not isinstance(data, int):
@@ -10,20 +13,50 @@ class Node:
 
     @property
     def data(self):
-        return self.__data
+        """
+        Retrieve the data of the node of a singly linked list.
+
+        Returns:
+            int: The data of the node of a singly linked list.
+        """
+        return (self.__data)
 
     @data.setter
     def data(self, value):
+        """
+        Set the the data part of the node of a singly linked list.
+
+        Args:
+            value (int): The data part of the node of a singly linked list.
+
+        Raises:
+            TypeError: data must be an integer.
+        """
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         self.__data = value
 
     @property
     def next_node(self):
-        return self.__next_node
+        """
+        Retrieve the next_node of a singly linked list.
+
+        Returns:
+            Node: The next node of a singly linked list.
+        """
+        return (self.__next_node)
 
     @next_node.setter
     def next_node(self, value):
+        """
+        Set the the next_node of a singly linked list.
+
+        Args:
+            value (Node): The next_node of a singly linked list.
+
+        Raises:
+            TypeError: next_node must be a Node object.
+        """
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
@@ -45,8 +78,10 @@ class SinglyLinkedList:
             new_node.next_node = curr.next_node
             curr.next_node = new_node
 
-    def display(self):
+    def __str__(self):
         current = self.head
+        result = ""
         while current:
-            print(current.data)
+            result += str(current.data) + '\n'
             current = current.next_node
+        return (result.rstrip())
