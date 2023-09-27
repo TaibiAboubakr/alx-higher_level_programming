@@ -13,7 +13,7 @@ class Node:
                 next_node (Node): The next_node of the node of a ssl.
         """
         self.__data = data
-        self.__next_node = next_node
+        self.__next_node = None
 
     @property
     def data(self):
@@ -91,9 +91,9 @@ class SinglyLinkedList:
 
     def __str__(self):
         """ Print the Singly Linked List """
-        curr = self.head
-        values = []
-        while curr is not None:
-            values.append(str(curr.data))
-            curr = curr.next_node
-        return ('\n'.join(values))
+        current = self.head
+        result = ""
+        while current:
+            result += str(current.data) + '\n'
+            current = current.next_node
+        return (result.rstrip())
