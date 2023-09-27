@@ -5,15 +5,15 @@
 class Node:
     """ class Node that defines a node of a singly linked list """
 
-    def __init__(self, data, next_node=None):
+    def __init__(self, data=0, next_node=None):
 
         """Initialize a new Node.
             Args:
                 data (int): The data of the node of a singly linked list.
                 next_node (Node): The next_node of the node of a ssl.
         """
-        self.__data = data
-        self.__next_node = None
+        self.data = data
+        self.next_node = None
 
     @property
     def data(self):
@@ -61,7 +61,7 @@ class Node:
         Raises:
             TypeError: next_node must be a Node object.
         """
-        if value is not None and not isinstance(value, Node):
+        if not isinstance(value, Node) and value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
