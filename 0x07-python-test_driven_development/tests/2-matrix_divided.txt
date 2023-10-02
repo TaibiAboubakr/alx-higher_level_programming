@@ -1,0 +1,55 @@
+The ``2-matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+This is an text file for function matrix_divided.
+``matrix_divided`` from the ``matrix_divided`` module:
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0, 1.33, 1.67, 2.0]]
+
+>>> matrix_divided([["Hello", 2, 3], [4, 5, 6]], 5)
+Traceback (most recent call last):
+TypeError: Matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([[float('inf'), 2, 3], [4, 5, 6]], 5)
+[[inf, 0.4, 0.6, 0.8, 1.0, 1.2]]
+
+>>> matrix_divided([[float('NaN'), 2, 3], [4, 5, 6]], 5)
+[[nan, 0.4, 0.6, 0.8, 1.0, 1.2]]
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+>>> matrix_divided([[1, 2, 3], [4, 5]], 3)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+>>> matrix_divided([[1, 2, 3], ["Hello",7 , 5]], 3)
+Traceback (most recent call last):
+TypeError: Matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([[1, 2, 3], [12, 7, 5]], "div")
+Traceback (most recent call last):
+TypeError: div must be a number
+
+>>> matrix_divided([[1, 2, 3], [12, 7, 5]], 'inf)
+Traceback (most recent call last):
+SyntaxError: EOL while scanning string literal
+
+>>> matrix_divided([[1, 2, 3], [12, 7, 5]], float('NaN'))
+[[nan, nan, nan, nan, nan, nan]]
+
+>>> matrix_divided([[1, 2, 3], [12, 7, 5]], float('inf'))
+[[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+
+>>> matrix_divided([[1, 2, 3], [12, 7, 5]], he)
+Traceback (most recent call last):
+NameError: name 'he' is not defined
+
+

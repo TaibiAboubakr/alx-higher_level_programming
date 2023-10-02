@@ -7,28 +7,40 @@ Using ``add_integer``
 This is an example text file in reStructuredText format.  First import
 ``add_integer`` from the ``add_integer`` module:
 
-	>>> add_integer = __import__('0-add_integer').add_integer
-    >>> add_integer(6, 2)
-    8
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(6, 2)
+8
 
-	>>> add_integer(10, -4)
-	6
+>>> add_integer(10, -4)
+6
 
-	>>> add_integer(6.0, 6.4)
-	12
+>>> add_integer(6.0, 6.4)
+12
 
-	>>> add_integer(15, 4)
-    	19
+>>> add_integer(15, 4)
+19
 
-	>>> add_integer("5", 2)
-	Traceback (most recent call last):
-	TypeError: a must be an integer
+>>> add_integer("5", 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
 
-	>>> add_integer(6, "Hello")
-	Traceback (most recent call last):
-	TypeError: b must be an integer
+>>> add_integer(6, "Hello")
+Traceback (most recent call last):
+TypeError: b must be an integer
 
-	>>> add_integer(0, 0)
-    	0
-	>>> add_integer(-15, 0)
-    	-15
+>>> add_integer(float('inf'), 5)
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('NaN'), 5)
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(5, he)
+Traceback (most recent call last):
+NameError: name 'he' is not defined
+
+>>> add_integer(3, 'inf)
+Traceback (most recent call last):
+SyntaxError: EOL while scanning string literal
+
