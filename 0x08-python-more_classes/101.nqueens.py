@@ -1,6 +1,24 @@
 #!/usr/bin/python3
-""" system module  """
+"""program that solves the N queens problem
+
+The N queens puzzle is the challenge
+of placing N non-attacking queens on an N×N chessboard.
+
+Usage:
+    $ ./101-nqueens.py N
+
+N must be a number >= 4.
+"""
 import sys
+
+
+def init_board(n):
+    """Initialize an `n`x`n` sized chessboard with 0's."""
+    board = []
+    [board.append([]) for i in range(n)]
+    [row.append(' ') for i in range(n) for row in board]
+    return (board)
+
 
 if __name__ == "__main__":
     n_args = len(sys.argv)
