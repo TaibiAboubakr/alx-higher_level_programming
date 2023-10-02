@@ -2,10 +2,10 @@
 """program that solves the N queens problem
 
 The N queens puzzle is the challenge
-of placing N non-attacking queens on an N×N chessboard.
+of placing N non-attacking queens on an N×N chessboard .
 
 Usage:
-    $ ./101-nqueens.py N
+    $./101-nqueens.py N
 
 N must be a number >= 4.
 """
