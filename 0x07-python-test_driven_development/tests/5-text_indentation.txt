@@ -17,7 +17,6 @@ and you ?
 <BLANKLINE>
 what's your name?
 <BLANKLINE>
-<BLANKLINE>
 
 >>> text_indentation("hello...")
 hello.
@@ -25,7 +24,6 @@ hello.
 .
 <BLANKLINE>
 .
-<BLANKLINE>
 <BLANKLINE>
 
 >>> text_indentation()
