@@ -4,7 +4,7 @@
 
 def text_indentation(text):
     """ text_indentation function """
-    
+
     if not type(text) is str:
         raise TypeError("text must be a string")
     string = ""
