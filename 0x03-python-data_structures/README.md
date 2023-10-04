@@ -9,11 +9,7 @@ Python data structures are essential for manipulating and managing data in a wid
 
 2. Tuples: Tuples are similar to lists but are immutable, meaning their contents cannot be changed once created. They are often used for representing collections of related data.
 
-3. Sets: Python sets are unordered collections of unique elements. They are useful for tasks requiring membership testing and eliminating duplicate entries.
-
-4. Dictionaries: Dictionaries are key-value pairs, allowing you to store data with unique keys for efficient retrieval. They are a fundamental data structure for implementing mappings and associative arrays.
-
-5. Linked Lists: Linked lists are linear data structures composed of nodes, each containing data and a reference to the next node. They are often used when dynamic memory allocation is required.
+4. Linked Lists: Linked lists are linear data structures composed of nodes, each containing data and a reference to the next node. They are often used when dynamic memory allocation is required.
 
 
 
