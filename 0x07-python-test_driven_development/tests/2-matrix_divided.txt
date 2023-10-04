@@ -32,7 +32,7 @@ TypeError: Each row of the matrix must have the same size
 
 >>> matrix_divided([[1, 2, 3], ["Hello",7 , 5]], 3)
 Traceback (most recent call last):
-TypeError: Matrix must be a matrix (list of lists) of integers/floats
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 >>> matrix_divided([[1, 2, 3], [12, 7, 5]], "div")
 Traceback (most recent call last):
