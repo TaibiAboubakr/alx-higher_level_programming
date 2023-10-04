@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """
-    standard math module
+    matrix_divided module
 """
-import math
 
 
 def matrix_divided(matrix, div):
@@ -15,7 +14,7 @@ def matrix_divided(matrix, div):
         TypeError: div must be a number
         ZeroDivisionError: division by zero
     """
-    err = "Matrix must be a matrix (list of lists) of integers/floats"
+    err = "matrix must be a matrix (list of lists) of integers/floats"
     if not all(isinstance(row, list) and all(isinstance(val, (int, float))
        for val in row) for row in matrix):
         raise TypeError(err)
@@ -27,10 +26,10 @@ def matrix_divided(matrix, div):
 
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    new_matrix = [[]]
+    new_matrix = []
     for row in matrix:
-        i = 0
+        new_row = []
         for x in row:
-            new_matrix[0].append(round((x / div), 2))
-        i += 1
+            new_row.append(round((x / div), 2))
+        new_matrix.append(new_row)
     return (new_matrix)
