@@ -44,3 +44,6 @@ NameError: name 'he' is not defined
 Traceback (most recent call last):
 SyntaxError: EOL while scanning string literal
 
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'
