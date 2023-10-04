@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+""" text_indentation module """
+
+
 def text_indentation(text):
+    """ text_indentation function """
+    
     if not type(text) is str:
         raise TypeError("text must be a string")
     string = ""
@@ -13,4 +18,4 @@ def text_indentation(text):
                 space = False
             if not space:
                 string += char
-    print(string)
+    print(string, end="")
