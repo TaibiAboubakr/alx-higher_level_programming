@@ -4,6 +4,7 @@
 
 class LockedClass:
     """ Locked Class  """
+    __slots__ = ('first_name',)
     def __setattr__(self, name, value):
         """ set attribute method  """
         if name == 'first_name':
