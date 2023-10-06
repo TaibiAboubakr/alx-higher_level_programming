@@ -10,4 +10,4 @@ class LockedClass:
         if name == 'first_name':
             super().__setattr__(name, value)
         else:
-            raise AttributeError(f"Cannot set '{name}' LockedClass")
+            raise AttributeError(f"'LockedClass' object has no attribute 'last_name'")
