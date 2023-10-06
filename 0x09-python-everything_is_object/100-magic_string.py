@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" magic_string module """
+
 
 def magic_string(n):
     """ magic_string function """
