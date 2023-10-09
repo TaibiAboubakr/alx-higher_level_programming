@@ -33,7 +33,7 @@ class Rectangle(BaseGeometry):
     This class allows you to create and manipulate Rectangle objects.
     Each Rectangle is defined by its width and height
     """
-    def __init__(self, width=0, height=0):
+    def __init__(self, width, height):
         """Initialize a new Rectangle.
             Args:
                 width (int): The width of the new Rectangle.
@@ -44,6 +44,3 @@ class Rectangle(BaseGeometry):
         self.__width = width
         self.integer_validator("height", height)
         self.__height = height
-        
-        
-        
