@@ -4,7 +4,7 @@
 
 def read_file(filename=""):
     """ read file module """
-    with open(filename, "r", encoding="utf-8") as file:
-        for line in file:
-            print(line, end="")
-        print()
+    if filename is not None:
+        with open(filename, "r") as file:
+            text_file = file.read()
+            print(text_file, end="")
