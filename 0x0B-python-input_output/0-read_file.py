@@ -5,5 +5,6 @@
 def read_file(filename=""):
     """ read file module """
 
-    with open(filename, "r", encoding="utf-8") as file:
-        print(file.read())
+    with open(filename, "r") as file:
+        text_file = file.read()
+        print(text_file)
