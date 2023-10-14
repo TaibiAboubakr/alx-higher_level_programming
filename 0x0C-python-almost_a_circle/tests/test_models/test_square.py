@@ -187,6 +187,26 @@ class TestClassSquare(unittest.TestCase):
 
     def test_update_kwargs_2(self):
         """ update_kwargs_2 """
-        r4 = Square(10, 10, 10, 2)
-        r4.update(x=1, size=2, y=3)
-        self.assertEqual(r4.__str__(), "[Square] (2) 1/3 - 2")
+        s8 = Square(10, 10, 10, 2)
+        s8.update(x=1, size=2, y=3)
+        self.assertEqual(s8.__str__(), "[Square] (2) 1/3 - 2")
+
+    def test_update_args_2(self):
+        """ update_args_2 """
+        s4 = Square(10, 10, 10, 2)
+        s4.update(8, 10, 2, 7)
+        self.assertEqual(s4.__str__(), "[Square] (8) 2/7 - 10")
+
+    def test_Square_To_dict_1(self):
+        Base._Base__nb_objects = 0
+        """ test_Square_To_dict_1 """
+        r4 =  Square(10, 2, 1, 9)
+        excepted = {'id': 9, 'x': 2, 'size': 10, 'y': 1}
+        self.assertEqual(r4.to_dictionary(), excepted)
+
+    def test_Square_To_dict_2(self):
+        Base._Base__nb_objects = 0
+        """ test_Square_To_dict_1 """
+        r5 =  Square(10, 5)
+        excepted = {'id': 1, 'x': 5, 'size': 10, 'y': 0}
+        self.assertEqual(r5.to_dictionary(), excepted)

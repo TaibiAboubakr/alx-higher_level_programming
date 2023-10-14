@@ -189,14 +189,34 @@ class TestClassRectangle(unittest.TestCase):
         r1 = Rectangle(12, 1, 30, 2)
         self.assertEqual(r1.__str__(), "[Rectangle] (2) 30/2 - 12/1")
 
-    def update_kwargs_1(self):
+    def test_update_kwargs_1(self):
         """ update_kwargs_1 """
         r3 = Rectangle(10, 10, 10, 10, 2)
         r3.update(height=1)
         self.assertEqual(r3.__str__(), "[Rectangle] (2) 10/10 - 10/1")
 
-    def update_kwargs_2(self):
+    def test_update_kwargs_2(self):
         """ update_kwargs_2 """
         r4 = Rectangle(10, 10, 10, 10, 2)
         r4.update(x=1, height=2, y=3, width=4)
         self.assertEqual(r4.__str__(), "[Rectangle] (2) 1/3 - 4/2")
+
+    def test_update_args_2(self):
+        """ update_kwargs_2 """
+        r4 = Rectangle(10, 10, 10, 10, 2)
+        r4.update(8, 10, 12, 2, 7)
+        self.assertEqual(r4.__str__(), "[Rectangle] (8) 2/7 - 10/12")
+
+    def test_Rectangle_To_dict_1(self):
+        Base._Base__nb_objects = 0
+        """ test_Rectangle_To_dict_1 """
+        r4 =  Rectangle(10, 2, 1, 9)
+        excepted = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(r4.to_dictionary(), excepted)
+
+    def test_Rectangle_To_dict_2(self):
+        Base._Base__nb_objects = 0
+        """ test_Rectangle_To_dict_1 """
+        r5 =  Rectangle(10, 5)
+        excepted = {'x': 0, 'y': 0, 'id': 1, 'height': 5, 'width': 10}
+        self.assertEqual(r5.to_dictionary(), excepted)
