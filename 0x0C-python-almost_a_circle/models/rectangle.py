@@ -146,3 +146,53 @@ class Rectangle(Base):
         for _ in range(self.__height):
             rect += "#" * self.__width + "\n"
         print(rect, end="")
+
+    def display(self):
+        """ print a rectangle using the "#" character
+            based on its width, height, x and y """
+        rect = ""
+        for _ in range(self.__y):
+            rect += "\n"
+
+        for _ in range(self.__height):
+            rect += " " * self.__x + "#" * self.__width + "\n"
+        print(rect, end="")
+
+    def __str__(self):
+        """ returns [Rectangle] (<id>) <x>/<y> - <width>/<height> """
+        x_y = str(f"{self.__x}/{self.__y}")
+        w_h = str(f"{self.__width}/{self.__height}")
+        return f"[Rectangle] ({self.id}) {x_y} - {w_h}"
+
+    def update(self, *args):
+        """ Update Square with *args """
+
+        arg_list = [self.id, self.__width, self.__height, self.__x, self.__y]
+        for x, arg in enumerate(args):
+            arg_list[x] = arg
+            if x == 4:
+                break
+
+        super().__init__(arg_list[0])
+        self.width = arg_list[1]
+        self.height = arg_list[2]
+        self.x = arg_list[3]
+        self.y = arg_list[4]
+
+    def update(self, *args, **kwargs):
+        """ Update Square with *args or **kwargs """
+
+        if args:
+            arg_l = [self.id, self.__width, self.__height, self.__x, self.__y]
+            for x, arg in enumerate(args):
+                arg_l[x] = arg
+                if x == 4:
+                    break
+            super().__init__(arg_l[0])
+            self.width = arg_l[1]
+            self.height = arg_l[2]
+            self.x = arg_l[3]
+            self.y = arg_l[4]
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
