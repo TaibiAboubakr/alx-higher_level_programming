@@ -1,4 +1,8 @@
+#!/usr/bin/python3
+""" import Base """
+
 from models.base import Base
+""" Rectangle class """
 
 
 class Rectangle(Base):
@@ -43,12 +47,12 @@ class Rectangle(Base):
 
         Raises:
             TypeError: width must be an integer
-            ValueError: width must be >= 0.
+            ValueError: width must be > 0.
         """
         if type(value) is not int:
             raise TypeError("width must be an integer")
-        if value < 0:
-            raise ValueError("width must be >= 0")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -71,12 +75,12 @@ class Rectangle(Base):
 
         Raises:
             TypeError: height must be an integer
-            ValueError: height must be >= 0.
+            ValueError: height must be > 0.
         """
         if type(value) is not int:
             raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -196,16 +200,16 @@ class Rectangle(Base):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
     def to_dictionary(self):
         """ 
         Method that returns the dictionary representation of a Rectangle
         """
         rect = {
-            "x" : self.x,
-            "y" : self.y,
-            "id" : self.id,
-            "height" : self.height,
-            "width" : self.width,
+            "x":self.x,
+            "y": self.y,
+            "id": self.id,
+            "height": self.height,
+            "width": self.width,
         }
         return rect
-        

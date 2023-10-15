@@ -1,31 +1,36 @@
 #!/usr/bin/python3
+""" import modules """
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
+from io import StringIO
+from unittest.mock import patch
 """ TestClassBase """
 
 
 class TestClassBase(unittest.TestCase):
     """ TestClassBase """
-    
-    def test_id_10(self):
-        """ test_id_10 """
-        self.assertEqual(Base(10).id, 10)
 
-    def test_id(self):
-        """ test_id """
+    def test_id_1(self):
+        """ test_id_1 """
         self.assertEqual(Base().id, 1)
 
     def test_id_2(self):
         """ test_id_2 """
         self.assertEqual(Base().id, 2)
 
+    def test_id_3(self):
+        """ test_id_2 """
+        self.assertEqual(Base().id, 3)
+
     def test_id_neg(self):
         """ test_id_neg """
         self.assertEqual(Base(-2).id, -2)
-        
+
     def test_id_None(self):
         """ test_id_None """
-        self.assertEqual(Base(None).id, 3)
+        self.assertEqual(Base(None).id, 4)
 
     def test_id_Var(self):
         """ test_id_Var """
@@ -37,7 +42,7 @@ class TestClassBase(unittest.TestCase):
         """ test_Raise_Failure """
         id = "100"
         with self.assertRaises(TypeError):
-          Base(id)
+            Base(id)
 
     @unittest.expectedFailure
     def test_id_Failure(self):
@@ -52,3 +57,19 @@ class TestClassBase(unittest.TestCase):
     def test_id_Str(self):
         """ test_id_Str """
         self.assertEqual(Base("hi").id, "hi")
+
+    def test_to_json_string_1(self):
+        """ test_to_json_string_1 """
+        r1 = Rectangle(10, 7, 2, 8, 6)
+        excepted = '[{"x": 2, "y": 8, "id": 6, "height": 7, "width": 10}]'
+        self.assertEqual(Base.to_json_string([r1.to_dictionary()]), excepted)
+
+    def test_to_json_string_2(self):
+        """ test_to_json_string_2 """
+        Base._Base__nb_objects = 0
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(3, 5, 15, 9)
+        list_dict = [r1.to_dictionary(), r2.to_dictionary()]
+        excepted = '[{"x": 2, "y": 8, "id": 1, "height": 7, "width": 10}, '
+        excepted += '{"x": 15, "y": 9, "id": 2, "height": 5, "width": 3}]'
+        self.assertEqual(Base.to_json_string(list_dict), excepted)
