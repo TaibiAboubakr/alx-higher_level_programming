@@ -2,6 +2,7 @@
 """ import json module """
 
 import json
+import turtle
 """ Base calss """
 
 
@@ -77,3 +78,34 @@ class Base:
                 return (dict_list)
         except FileNotFoundError:
             return dict_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ draw rectangle and square """
+        screen = turtle.Screen()
+        screen.title("Draw Rectangles and Squares")
+
+        pen = turtle.Turtle()
+        pen.speed(1)
+        for rect in list_rectangles:
+            pen.penup()
+            pen.goto(-rect.width / 2, -rect.height / 2)
+            pen.pendown()
+            pen.forward(rect.width)
+            pen.left(90)
+            pen.forward(rect.height)
+            pen.left(90)
+            pen.forward(rect.width)
+            pen.left(90)
+            pen.forward(rect.height)
+            pen.left(90)
+
+        for square in list_squares:
+            pen.penup()
+            pen.goto(-square.side_length / 2, -square.side_length / 2)
+            pen.pendown()
+            for _ in range(4):
+                pen.forward(square.side_length)
+                pen.left(90)
+
+        screen.exitonclick()
