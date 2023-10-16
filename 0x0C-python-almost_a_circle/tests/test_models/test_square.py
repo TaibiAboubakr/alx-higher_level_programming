@@ -43,6 +43,12 @@ class TestClassSquare(unittest.TestCase):
             Square(-3, 2, 0, 12)
         self.assertEqual(str(e.exception), "width must be > 0")
 
+    def test_Raise_ValueError_Zero(self):
+        """ test_Raise_ValueError """
+        with self.assertRaises(ValueError) as e:
+            Square(0, 2, 0, 12)
+        self.assertEqual(str(e.exception), "width must be > 0")
+
     def test_Raise_ValueError_x(self):
         """ test_Raise_ValueError """
         with self.assertRaises(ValueError) as e:
@@ -211,3 +217,56 @@ class TestClassSquare(unittest.TestCase):
         r5 = Square(10, 5)
         excepted = {'id': 1, 'x': 5, 'size': 10, 'y': 0}
         self.assertEqual(r5.to_dictionary(), excepted)
+
+    def test_create_1(self):
+        Base._Base__nb_objects = 0
+        """ test_create_1 """
+        s1 = Square(3, 5, 1)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual(s1.__str__(), "[Square] (1) 5/1 - 3")
+        self.assertEqual(s2.__str__(), "[Square] (1) 5/1 - 3")
+        self.assertFalse(s1 is s2)
+        self.assertFalse(s1 == s2)
+
+    def test_save_to_file(self):
+        Base._Base__nb_objects = 0
+        """ test_save_to_file """
+        r1 = Square(10, 7, 2, 8)
+        r2 = Square(2, 4)
+        Square.save_to_file([r1, r2])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(),'[{"id": 8, "x": 7, "size": 10, "y": 2}, {"id": 1, "x": 4, "size": 2, "y": 0}]')
+            print(file.read())
+           
+    def test_save_to_file_1(self):
+        Base._Base__nb_objects = 0
+        """ test_save_to_file1 """
+        Square.save_to_file([])
+        with open("Square.json", "r") as file1:
+            self.assertEqual(file1.read(),'[]')
+
+
+    def test_save_to_file_2(self):
+        Base._Base__nb_objects = 0
+        """ test_save_to_file_2 """
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file2:
+            f = file2.read()
+            self.assertEqual(f, '[]')
+            self.assertAlmostEqual(len(f), 2)
+
+    def test_load_from_file(self):
+        Base._Base__nb_objects = 0
+        """ test_save_to_file """
+        r1 = Square(10, 7, 2, 8)
+        r2 = Square(2, 4)
+        list_rectangles_input = [r1, r2]
+        Square.save_to_file(list_rectangles_input)
+        Square.save_to_file([r1, r2])
+        list_rectangles_output = Square.load_from_file()
+        for rect_input, rect_output in zip(list_rectangles_input, list_rectangles_output):
+            self.assertEqual(rect_input.x, rect_output.x)
+            self.assertEqual(rect_input.y, rect_output.y)
+            self.assertEqual(rect_input.width, rect_output.width)
+            self.assertEqual(rect_input.height, rect_output.height)

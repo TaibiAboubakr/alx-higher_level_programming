@@ -69,11 +69,11 @@ class Base:
         filename = str(cls.__name__) + ".json"
         dict_list = []
         try:
-            with open (filename, 'r') as file:
+            with open(filename, 'r') as file:
                 data_str = file.read()
                 str_list = cls.from_json_string(data_str)
                 for dict in str_list:
                     dict_list.append(cls.create(**dict))
                 return (dict_list)
         except FileNotFoundError:
-             return dict_list
+            return dict_list
