@@ -2,6 +2,7 @@
 """ import json module """
 
 import json
+import csv
 import turtle
 """ Base calss """
 
@@ -79,9 +80,50 @@ class Base:
         except FileNotFoundError:
             return dict_list
 
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        filename = f"{cls.__name__}.csv"
+
+        with open(filename, 'w', newline='') as file:
+            writer = csv.writer(file)
+            if cls.__name__ == 'Rectangle':
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.width,
+                                     obj.height, obj.x, obj.y])
+
+            elif cls.__name__ == 'Square':
+                for obj in list_objs:
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = f"{cls.__name__}.csv"
+
+        obj_list = []
+        try:
+            with open(filename, 'r', newline='') as file:
+                reader = csv.reader(file)
+                if cls.__name__ == 'Rectangle':
+                    for row in reader:
+                        obj = cls(int(row[1]), int(row[2]))
+                        obj.id = int(row[0])
+                        obj.x = int(row[3])
+                        obj.y = int(row[4])
+                        obj_list.append(obj)
+                elif cls.__name__ == 'Square':
+                    for row in reader:
+                        obj = cls(int(row[1]))
+                        obj.id = int(row[0])
+                        obj.x = int(row[2])
+                        obj.y = int(row[3])
+                        obj_list.append(obj)
+        except FileNotFoundError:
+            pass
+        return obj_list
+
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """ draw rectangle and square """
+        """  draw rectangle and square """
         screen = turtle.Screen()
         screen.title("Draw Rectangles and Squares")
 
