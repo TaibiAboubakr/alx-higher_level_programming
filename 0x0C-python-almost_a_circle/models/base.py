@@ -144,10 +144,10 @@ class Base:
 
         for square in list_squares:
             pen.penup()
-            pen.goto(-square.side_length / 2, -square.side_length / 2)
+            pen.goto(-square.size / 2, -square.size / 2)
             pen.pendown()
             for _ in range(4):
-                pen.forward(square.side_length)
+                pen.forward(square.size)
                 pen.left(90)
 
         screen.exitonclick()
