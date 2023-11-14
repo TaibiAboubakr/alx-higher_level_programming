@@ -2,7 +2,7 @@
 -- during July and August ordered by temperature (descending)
 use hbtn_0c_0 ;
 SELECT city, AVG(value) AS avg_temp FROM temperatures
-WHERE month IN (6, 8)
+WHERE month IN (7, 8)
 GROUP BY city
 ORDER BY avg_temp DESC
 LIMIT 3;
