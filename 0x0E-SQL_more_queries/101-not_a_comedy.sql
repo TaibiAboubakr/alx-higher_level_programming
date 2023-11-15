@@ -14,4 +14,3 @@ WHERE tv_shows.id NOT IN (
     WHERE tv_genres.name = 'Comedy'
 )
 ORDER BY tv_shows.title ASC;
-
