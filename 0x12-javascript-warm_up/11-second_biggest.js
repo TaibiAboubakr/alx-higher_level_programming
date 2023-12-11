@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const nArgs = process.argv.length - 1;
-if (nArgs > 1) {
+if (nArgs > 2) {
   let max = parseInt(process.argv[2], 10);
 
   for (let i = 3; i <= nArgs; i++) {
