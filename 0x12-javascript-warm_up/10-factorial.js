@@ -12,6 +12,4 @@ if (nArgs > 0 && !isNaN(process.argv[2])) {
     }
   }
   console.log(factorial(n));
-} else {
-  console.log('0');
 }
