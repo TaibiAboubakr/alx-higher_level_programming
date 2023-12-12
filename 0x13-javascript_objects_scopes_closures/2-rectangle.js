@@ -2,24 +2,24 @@
 
 module.exports = class Rectangle {
   constructor (w, h) {
-    this._width = w;
-    this._height = h;
+    this.width = w;
+    this.height = h;
   }
 
   set width (newWidth) {
-    this._height = this.validateDimension(newWidth);
+    this.height = this.validateDimension(newWidth);
   }
 
   get width () {
-    return this._width;
+    return this.width;
   }
 
   get height () {
-    return this._height;
+    return this.height;
   }
 
   set height (newHeight) {
-    this._height = this.validateDimension(newHeight);
+    this.height = this.validateDimension(newHeight);
   }
 
   validateDimension (value) {
