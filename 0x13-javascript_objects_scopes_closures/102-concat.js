@@ -3,13 +3,13 @@ const fs = require('fs');
 let data = '';
 try {
   const fileAContent = fs.readFileSync(process.argv[2], 'utf-8');
-  data += fileAContent + '\n';
+  data += fileAContent;
 } catch (error) {
   console.error('Error reading the file:', error.message);
 }
 try {
   const fileBContent = fs.readFileSync(process.argv[3], 'utf-8');
-  data += fileBContent + '\n';
+  data += fileBContent;
 } catch (error) {
   console.error('Error reading the file:', error.message);
 }
