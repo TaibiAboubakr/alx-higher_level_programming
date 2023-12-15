@@ -3,25 +3,23 @@
 """
 import sys
 from model_state import Base, State
-from sqlalchemy import (create_engine, text)
+from sqlalchemy import (create_engine)
+from sqlalchemy.orm import sessionmaker
 
 
-def execute_query(username, password, dbname):
+def main(username, password, dbname):
     """ function that execute the query  """
-    DATABASE_URL = f'mysql://{username}:{password}@localhost:3306/{dbname}'
-    engine = create_engine(DATABASE_URL)
-    sql_query = text("select * from states;")
-    with engine.connect() as connection:
-        result = connection.execute(sql_query)
-        empty = True
-        for row in result:
-            print(f"{row[0]}: {row[1]}")
-            empty = False
-            break
-        if empty:
-            print("Nothing")
+    DB_URL = f'mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}'
+    engine = create_engine(DB_URL)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    instance = session.query(State).order_by(State.id).first()
+    if instance is None:
+        print("Nothing")
+    else:
+        print(f"{instance.id}: {instance.name}")
 
 
 if __name__ == "__main__":
     username, password, dbname = sys.argv[1:]
-    execute_query(username, password, dbname)
+    main(username, password, dbname)
