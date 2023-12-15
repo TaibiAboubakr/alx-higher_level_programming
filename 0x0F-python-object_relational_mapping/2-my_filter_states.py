@@ -16,7 +16,7 @@ def main():
                            user=username, passwd=password,
                            db=dbname, charset="utf8")
     cur = conn.cursor()
-    query = "SELECT * FROM states WHERE name = '{}'\
+    query = "SELECT * FROM states WHERE name LIKE BINARY '{}'\
     ORDER BY states.id ASC".format(searched)
     cur.execute(query)
     query_rows = cur.fetchall()
