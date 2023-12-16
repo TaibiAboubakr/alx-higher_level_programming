@@ -15,6 +15,11 @@ def main(username, password, dbname):
     new_State = State(name='Louisiana')
     session.add(new_State)
     session.commit()
+    results = session.query(State).filter(State.name.like('Louisiana')).first()
+    if results is None:
+        print("Not found")
+    else:
+        print(results.id)
 
 
 if __name__ == "__main__":
