@@ -21,12 +21,10 @@ def create(username, password, db_name):
 
     addState = State(name='California')
     addCity = City(name='San Francisco')
+    addState.cities.append(addCity)
     session.add(addState)
     session.add(addCity)
-    addState.cities.append(addCity)
     session.commit()
-
-    session.close()
 
 
 if __name__ == "__main__":
