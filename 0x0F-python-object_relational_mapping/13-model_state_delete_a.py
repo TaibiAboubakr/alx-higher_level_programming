@@ -12,10 +12,8 @@ def main(username, password, dbname):
     DB_URL = f'mysql+mysqldb://{username}:{password}@localhost:3306/{dbname}'
     engine = create_engine(DB_URL)
     session = sessionmaker(bind=engine)()
-    results = session.query(State).filter(State.name.like('%a%')).all()
-    for state in results:
-        session.delete(state)
-        session.commit()
+    for instance in session.query(State).filter(State.name.contains('a')):
+        session.delete(instance)
 
 
 if __name__ == "__main__":
