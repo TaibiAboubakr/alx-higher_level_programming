@@ -15,7 +15,7 @@ def main(username, password, dbname):
     for instance in session.query(State).filter(State.name.contains('a')):
         session.delete(instance)
 
-
+    session.commit()
 if __name__ == "__main__":
     username, password, dbname = sys.argv[1:]
     main(username, password, dbname)
