@@ -8,6 +8,8 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import relationship
 
+""" main """
+
 
 def main():
     """ main function """
@@ -24,4 +26,5 @@ def main():
 
 
 if __name__ == "__main__":
+    """ main """
     main()
