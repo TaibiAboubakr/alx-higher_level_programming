@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """a Python script that fetches https://alx-intranet.hbtn.io/status"""
 import requests
-import  sys
+import sys
 
 
 if __name__ == "__main__":
