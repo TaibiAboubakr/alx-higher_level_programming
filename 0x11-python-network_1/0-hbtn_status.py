@@ -4,9 +4,9 @@
 
 if __name__ == "__main__":
     import urllib.request
-    req = urllib.request.Request("https://alx-intranet.hbtn.io/status")
-    with urllib.request.urlopen(req) as response:
-        content = response.read()
+    
+    with urllib.request.urlopen("https://alx-intranet.hbtn.io/status") as resp:
+        content = resp.read()
         print("Body response:")
         print("\t- type: {}".format(type(content)))
         print("\t- content: {}".format(content))
