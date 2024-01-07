@@ -9,7 +9,7 @@ import sys
 if __name__ == "__main__":
     query = "" if len(sys.argv) < 2 else sys.argv[1]
     params = {"q": query}
-    req = requests.get("http://0.0.0.0:5000/search_user", params)
+    req = requests.get("http://0.0.0.0:5000/search_user", data=params)
     try:
         data = req.json()
         print(type(data))
