@@ -12,9 +12,9 @@ if __name__ == "__main__":
     req = requests.get("http://0.0.0.0:5000/search_user", data=params)
     try:
         data = req.json()
-        if data:
-            print(f"[{data.get('id')}] {data.get('name')}")
-        else:
+        if data == {}:
             print("No result")
+        else:
+            print(f"[{data.get('id')}] {data.get('name')}")
     except ValueError:
         print("Not a valid JSON")
