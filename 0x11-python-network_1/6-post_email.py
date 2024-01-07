@@ -11,5 +11,4 @@ if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
     req = requests.post(url, data={'email': email})
-    resp = requests.get(url)
-    print("{}".format(resp.text))
+    print(req.text)
