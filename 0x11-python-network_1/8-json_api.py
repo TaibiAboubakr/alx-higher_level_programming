@@ -12,8 +12,9 @@ if __name__ == "__main__":
     req = requests.get("http://0.0.0.0:5000/search_user", params)
     try:
         data = req.json()
-        if data and isinstance(data, dict) and 'id' in data and 'name' in data:
-            print("[{}] {}".format(data['id'], data['name']))
+        print(type(data))
+        if data:
+            print(f"{data.get('id')} {data.get('name')}")
         else:
             print("No result")
     except ValueError:
