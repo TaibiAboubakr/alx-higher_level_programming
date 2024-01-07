@@ -14,7 +14,7 @@ if __name__ == "__main__":
         data = req.json()
         print(type(data))
         if data:
-            print(f"{data.get('id')} {data.get('name')}")
+            print(f"[{data.get('id')}] {data.get('name')}")
         else:
             print("No result")
     except ValueError:
