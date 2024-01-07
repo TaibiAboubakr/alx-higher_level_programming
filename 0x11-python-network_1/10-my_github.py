@@ -8,14 +8,14 @@ import sys
 
 if __name__ == "__main__":
     username, password = sys.argv[1:]
-    credentials = {"user": username,
-                   "pass": password}
-    req = requests.get(f"https://api.github.com/users/{username}")
+    credentials = (username, password)
+    api_url = f"https://api.github.com/users/{username}"
     try:
-        data = req.json()
-        if data:
+        resp = requests.get(api_url, auth=credentials)
+        if resp.status_code == 200:
+            data = resp.json()
             print(data.get('id'))
         else:
-            print("No result")
+            print("None")
     except ValueError:
         print("Not a valid JSON")
