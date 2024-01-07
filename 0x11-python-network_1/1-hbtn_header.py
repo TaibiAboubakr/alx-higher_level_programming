@@ -7,8 +7,6 @@ of the response."""
 if __name__ == "__main__":
     import urllib.request
     import sys
-    if len(sys.argv) < 2:
-        exit(1)
     url = sys.argv[1]
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as resp:
