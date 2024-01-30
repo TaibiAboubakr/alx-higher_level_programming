@@ -12,7 +12,7 @@ request(url, (_error, _response, body) => {
       const filmsData = JSON.parse(body);
       for (let i = 0; i < filmsData.results.length; i++) {
         const film = filmsData.results[i];
-        if (film.characters.some(characterUrl => characterUrl.endsWith(`people/${characterId}/`))) {
+        if (film.characters.some(characterUrl => characterUrl.endsWith('people/18/'))) {
           count++;
         }
       }
