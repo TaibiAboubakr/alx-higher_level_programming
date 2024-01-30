@@ -12,7 +12,7 @@ request(url, (_error, _response, body) => {
       const filmsData = JSON.parse(body);
       for (let i = 0; i < filmsData.results.length; i++) {
         const film = filmsData.results[i];
-        if (film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
+        if (film.characters.some(characterUrl => characterUrl.endsWith(`people/${characterId}/`))) {
           count++;
         }
       }
