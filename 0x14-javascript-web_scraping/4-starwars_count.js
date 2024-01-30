@@ -6,7 +6,7 @@ request(url, (_error, response, body) => {
     try {
       const filmsData = JSON.parse(body);
       const filmsWithWedge = filmsData.results.filter((film) => {
-        return film.characters.includes(`https://swapi-api.alx-tools.com/api/people/18/`);
+        return film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/');
       });
       console.log(filmsWithWedge.length);
     } catch (parseError) {
