@@ -6,7 +6,7 @@ console.log(FileName);
 
 fs.readFile(FileName, 'utf8', (err, data) => {
   if (err) {
-    console.error('Error reading file:', err);
+    console.log(err);
     return;
   }
   console.log(data);
