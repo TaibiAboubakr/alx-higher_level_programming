@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const request = require('request');
 const url = process.argv[2];
-request(url, (_error, response, body) => {
-  if (response && response.statusCode >= 200 && response.statusCode < 300) {
+request(url, (_error, _response, body) => {
+  if (body) {
     try {
       const filmsData = JSON.parse(body);
       const filmsWithWedge = filmsData.results.filter((film) => {
