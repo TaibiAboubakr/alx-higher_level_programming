@@ -1,5 +1,9 @@
 #!/usr/bin/node
 const request = require('request');
+if (process.argv.length !== 3) {
+  console.error('Usage: node script.js <API_URL>');
+  return;
+}
 const url = process.argv[2];
 let count = 0;
 request(url, (_error, _response, body) => {
